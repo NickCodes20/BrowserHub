@@ -2,8 +2,6 @@ import subprocess
 import os
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from mozrunner import runners
-
 
 # TODO rename project to "WindowPain"?
 
@@ -18,9 +16,9 @@ class BhubFunctionality:
         self.localhost = "http://127.0.0.1:5500/index.html"
         self.folder_structured_localhost = "http://127.0.0.1:5500/html/index.html"
         self.processes = []
-        self.desktop = "--start-maximized"  # = driver.window_size.maximize? not correct code but conceptual
-        self.tablet = "--window-size=1200,800"  # = driver.window_size.tablet
-        self.mobile = "--window-size=400,800"  # = driver.window_size.mobile  somehow combine drier vars with size vars?
+        self.desktop = "--start-maximized"
+        self.tablet = "--window-size=1200,800"
+        self.mobile = "--window-size=400,800"
         self.size_menu = {"Desktop": self.desktop, "Tablet": self.tablet, "Mobile": self.mobile}
         self.window_size = self.size_menu["Desktop"]  # SUBJECT TO CHANGE
         self.browser_dict = {}
@@ -85,16 +83,14 @@ class BhubFunctionality:
         """Appends Firefox browser to browser list """
         if box_value is True:
             self.browser_dict["Firefox"] = [self.firefox, size, self.localhost]
-            self.update_window_size(size)
         elif box_value is False:
             del self.browser_dict["Firefox"]
         print(self.browser_dict)
 
-    def append_edge(self, box_value, size):
+    def append_edge(self, box_value, menu_var):
         """Appends Edge browser to browser list """
         if box_value is True:
-            self.browser_dict["Edge"] = [self.edge, size, self.localhost]
-            self.update_window_size(size)
+            self.browser_dict["Edge"] = [self.edge, menu_var, self.localhost]
         elif box_value is False:
             del self.browser_dict["Edge"]
         print(self.browser_dict)
