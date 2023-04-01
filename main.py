@@ -6,6 +6,9 @@ import bhubfuncs
 bhf = bhubfuncs.BhubFunctionality()
 
 # TODO edge and firefox are not respecting the window size feature, troubleshoot
+# TODO add refresh all feature
+# TODO ask for user input to add custom URL to launch
+# TODO add feature to open inspector upon launch
 
 customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("dark-blue")
@@ -71,7 +74,7 @@ chromebox.grid(pady=12, padx=10, row=2, column=0)
 chromedrop = customtkinter.CTkOptionMenu(master=frame, values=list(bhf.size_menu.keys()), fg_color=PRIMARY,
                                          button_color=ACCENT, dropdown_fg_color=PRIMARY,
                                          dropdown_hover_color=HOVER_COLOR, variable=chrome_menu_var,
-                                         command=lambda value: bhf.update_window_size(value))
+                                         command=lambda value: bhf.update_chrome_size(value))
 chromedrop.grid(pady=12, padx=10, row=2, column=1)
 
 # Firefox's checkbox
@@ -82,7 +85,7 @@ foxbox.grid(pady=12, padx=10)
 foxdrop = customtkinter.CTkOptionMenu(master=frame, values=list(bhf.size_menu.keys()), fg_color=PRIMARY,
                                       button_color=ACCENT, dropdown_fg_color=PRIMARY,
                                       dropdown_hover_color=HOVER_COLOR, variable=firefox_menu_var,
-                                      command=lambda value: bhf.update_window_size(value))
+                                      command=lambda value: bhf.update_fox_size(value))
 foxdrop.grid(pady=12, padx=10, row=3, column=1)
 
 # Edge's checkbox
@@ -93,7 +96,7 @@ edgebox.grid(pady=12, padx=10)
 edgedrop = customtkinter.CTkOptionMenu(master=frame, values=list(bhf.size_menu.keys()), fg_color=PRIMARY,
                                        button_color=ACCENT, dropdown_fg_color=PRIMARY,
                                        dropdown_hover_color=HOVER_COLOR, variable=edge_menu_var,
-                                       command=lambda value: bhf.update_window_size(value))
+                                       command=lambda value: bhf.update_edge_size(value))
 edgedrop.grid(pady=12, padx=10, row=4, column=1)
 
 # Safari's checkbox

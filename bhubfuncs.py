@@ -55,27 +55,57 @@ class BhubFunctionality:
         else:
             print("Please select a browser.")
 
-    def update_window_size(self, size):
-        for browser in self.browser_dict:
-            if size == "Desktop":
-                self.window_size = self.size_menu["Desktop"]
-                self.browser_dict[browser][1] = self.window_size
-                print(f"{browser} size: {self.browser_dict[browser][1]}")
-            elif size == "Tablet":
-                self.window_size = self.size_menu["Tablet"]
-                self.browser_dict[browser][1] = self.window_size
-                print(f"{browser} size: {self.browser_dict[browser][1]}")
-            elif size == "Mobile":
-                self.window_size = self.size_menu["Mobile"]
-                self.browser_dict[browser][1] = self.window_size
-                print(f"{browser} size: {self.browser_dict[browser][1]}")
+    def update_chrome_size(self, size):
+        """Updates window size of Chrome prior to launch"""
+        if size == "Desktop":
+            self.window_size = self.size_menu["Desktop"]
+            self.browser_dict["Chrome"][1] = self.window_size
+            print(f"Chrome size: {self.browser_dict['Chrome'][1]}")
+        elif size == "Tablet":
+            self.window_size = self.size_menu["Tablet"]
+            self.browser_dict["Chrome"][1] = self.window_size
+            print(f"Chrome size: {self.browser_dict['Chrome'][1]}")
+        elif size == "Mobile":
+            self.window_size = self.size_menu["Mobile"]
+            self.browser_dict["Chrome"][1] = self.window_size
+            print(f"Chrome size: {self.browser_dict['Chrome'][1]}")
+
+    def update_fox_size(self, size):
+        """Updates window size of Firefox prior to launch"""
+        if size == "Desktop":
+            self.window_size = self.size_menu["Desktop"]
+            self.browser_dict["Firefox"][1] = self.window_size
+            print(f"Firefox size: {self.browser_dict['Firefox'][1]}")
+        elif size == "Tablet":
+            self.window_size = self.size_menu["Tablet"]
+            self.browser_dict["Firefox"][1] = self.window_size
+            print(f"Firefox size: {self.browser_dict['Firefox'][1]}")
+        elif size == "Mobile":
+            self.window_size = self.size_menu["Mobile"]
+            self.browser_dict["Firefox"][1] = self.window_size
+            print(f"Firefox size: {self.browser_dict['Firefox'][1]}")
+
+    def update_edge_size(self, size):
+        """Updates window size of Edge prior to launch"""
+        if size == "Desktop":
+            self.window_size = self.size_menu["Desktop"]
+            self.browser_dict["Edge"][1] = self.window_size
+            print(f"Edge size: {self.browser_dict['Edge'][1]}")
+        elif size == "Tablet":
+            self.window_size = self.size_menu["Tablet"]
+            self.browser_dict["Edge"][1] = self.window_size
+            print(f"Edge size: {self.browser_dict['Edge'][1]}")
+        elif size == "Mobile":
+            self.window_size = self.size_menu["Mobile"]
+            self.browser_dict["Edge"][1] = self.window_size
+            print(f"Edge size: {self.browser_dict['Edge'][1]}")
 
     # TODO create functions to add screen sizes to OptionMenu, options should be named "Desktop", "Tablet", and "Mobile"
     def append_chrome(self, box_value, size):  # CAN THIS CONDENS INTO update_window_size() to prevent error when unchecked?
         """Appends Chrome browser to browser list """
         if box_value is True:
             self.browser_dict["Chrome"] = [self.chrome, size, self.localhost]
-            self.update_window_size(size)
+            self.update_chrome_size(size)
         elif box_value is False:
             del self.browser_dict["Chrome"]
             # print(f"Chrome Size: {size}")
@@ -85,7 +115,7 @@ class BhubFunctionality:
         """Appends Firefox browser to browser list """
         if box_value is True:
             self.browser_dict["Firefox"] = [self.firefox, size, self.localhost]
-            self.update_window_size(size)
+            self.update_fox_size(size)
         elif box_value is False:
             del self.browser_dict["Firefox"]
         print(self.browser_dict)
@@ -94,7 +124,7 @@ class BhubFunctionality:
         """Appends Edge browser to browser list """
         if box_value is True:
             self.browser_dict["Edge"] = [self.edge, size, self.localhost]
-            self.update_window_size(size)
+            self.update_edge_size(size)
         elif box_value is False:
             del self.browser_dict["Edge"]
         print(self.browser_dict)
